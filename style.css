@@ -1,0 +1,36 @@
+body {
+  background: #FF9800;
+  font-family: 'Oswald';
+  /* font-size: 50px; */
+}
+
+h1 {
+  color: #fff;
+  font-size: 90px;
+}
+
+h2 {
+  color: #fff;
+  font-size: 30px;
+}
+
+.slide {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px;
+  text-align: center;
+}
+
+#slide {
+  display: block;
+}
+
+iframe {
+  width: 600px;
+  height: 600px;
+}
+
