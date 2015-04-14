@@ -34,3 +34,7 @@ iframe {
   height: 600px;
 }
 
+img.white {
+  background: #fff;
+}
+
