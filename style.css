@@ -1,3 +1,6 @@
+@font-face {
+  font-family: 'powerline';
+  src: url('img/Meslo LG S DZ Regular for Powerline.otf');}
 body {
   background: #FF9800;
   font-family: 'Oswald';
@@ -34,7 +37,25 @@ iframe {
   height: 600px;
 }
 
+img {
+  max-width: 90%;
+}
+
 img.white {
   background: #fff;
+}
+
+.terminal-container {
+  margin: 0px;
+  margin-left: -460px;
+  position: relative;
+  left: 50%;
+  background: #000;
+  width: 920px;
+}
+
+.terminal {
+  font-family: 'powerline' !important;
+  font-size: 18px;
 }
 
