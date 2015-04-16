@@ -15,8 +15,8 @@ function nextSlide() {
                 console.log("found term");
                 socket.emit("newvim", { file: termContainer.getAttribute("data-file") });
                 var term = new Terminal({
-                        cols: 80,
-                        rows: 24,
+                        cols: 90,
+                        rows: 30,
                         useStyle: true,
                         screenKeys: true,
                         cursorBlink: false
@@ -34,6 +34,13 @@ function nextSlide() {
         }
 }
 
+var rows = [
+        { "keys": "QWERTYUIOP[]\\", top: 110, left: 105, spacing: 63 },
+        { "keys": "ASDFGHJKL;'", top: 173, left: 122, spacing: 63 },
+        { "keys": "ZXCVBNM,./", top: 236, left: 153, spacing: 63 },
+        { "keys": [17], top: 300, left: 75, spacing: 63 },
+];
+
 window.onload = nextSlide;
 window.addEventListener("keyup", function(event) {
         if (event.keyCode == 37 || event.keyCode == 38) {
@@ -44,6 +51,25 @@ window.addEventListener("keyup", function(event) {
                 nextSlide();
         }
         console.log(event.keyCode);
+        console.log(String.fromCharCode(event.keyCode));
+        if (event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode == 17) {
+                var row;
+                var index;
+                for (var i = 0; i < rows.length; i++) {
+                        index = rows[i].keys.indexOf(event.keyCode);
+                        if (index == -1) {
+                                index = rows[i].keys.indexOf(String.fromCharCode(event.keyCode));
+                        }
+                        console.log(event.keyCode + " " + index);
+                        if (index != -1) {
+                                row = rows[i];
+                                break;
+                        }
+                }
+                var hi = document.getElementById("highlight");
+                hi.style.top = row.top + "px";
+                hi.style.left = row.left + (row.spacing * index) + "px";
+        }
 });
 
 if (location.hash) {

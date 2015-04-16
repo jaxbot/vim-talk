@@ -1,6 +1,8 @@
 @font-face {
   font-family: 'powerline';
-  src: url('img/Meslo LG S DZ Regular for Powerline.otf');}
+  unicode-range: U+FF-FFFF;
+  src: url('img/DejaVu\ Sans\ Mono\ for\ Powerline.ttf');}
+
 body {
   background: #FF9800;
   font-family: 'Oswald';
@@ -48,14 +50,34 @@ img.white {
 .terminal-container {
   margin: 0px;
   margin-left: -460px;
-  position: relative;
+  position: absolute;
   left: 50%;
   background: #000;
-  width: 920px;
+  width: 1000px;
+  overflow: hidden;
+  text-align: left;
 }
 
 .terminal {
-  font-family: 'powerline' !important;
   font-size: 18px;
+  font-family: 'powerline', monospace !important;
 }
 
+.keyboard {
+  position: absolute;
+  top: 220px;
+  height: 360px;
+  width: 920px;
+  margin-left: calc(50% - 460px);
+  background: url("img/keyboard.jpg");
+  opacity: 0.8;
+}
+
+.keyboard #highlight {
+  position: absolute;
+  background: #f00;
+  width: 50px;
+  height: 50px;
+  border-radius: 2px;
+  opacity: 0.3;
+}
