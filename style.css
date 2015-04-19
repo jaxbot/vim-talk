@@ -4,14 +4,14 @@
   src: url('img/DejaVu\ Sans\ Mono\ for\ Powerline.ttf');}
 
 body {
-  background: #FF9800;
-  font-family: 'Oswald';
-  /* font-size: 50px; */
+  background: rgb(70, 142, 195);
+  font-family: 'Roboto';
+  color: #fff;
 }
 
 h1 {
-  color: #fff;
   font-size: 90px;
+  font-family: 'Oswald';
 }
 
 h2 {
@@ -65,7 +65,7 @@ img.white {
 
 .keyboard {
   position: absolute;
-  top: 220px;
+  top: 260px;
   height: 360px;
   width: 920px;
   margin-left: calc(50% - 460px);
@@ -81,3 +81,23 @@ img.white {
   border-radius: 2px;
   opacity: 0.3;
 }
+
+img.full-screen {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+ul {
+  font-size: 40px;
+  line-height: 50px;
+  list-style: none;
+}
+
+.vertical-center {
+  position: relative;
+  padding-top: 50%;
+  transform: translateY(-50%);
+}
+
