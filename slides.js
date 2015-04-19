@@ -38,7 +38,9 @@ var rows = [
         { "keys": "QWERTYUIOP[]\\", top: 110, left: 105, spacing: 63 },
         { "keys": "ASDFGHJKL;'", top: 173, left: 122, spacing: 63 },
         { "keys": "ZXCVBNM,./", top: 236, left: 153, spacing: 63 },
+        { "keys": [188, 190, 191], top: 236, left: 153 + 63 * 7, spacing: 63 },
         { "keys": [17], top: 300, left: 75, spacing: 63 },
+        { "keys": "`1234567890-=", top: 50, left: 12, spacing: 63 },
 ];
 
 window.onload = nextSlide;
@@ -52,24 +54,22 @@ window.addEventListener("keyup", function(event) {
         }
         console.log(event.keyCode);
         console.log(String.fromCharCode(event.keyCode));
-        if (event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode == 17) {
-                var row;
-                var index;
-                for (var i = 0; i < rows.length; i++) {
+        var row;
+        var index;
+        for (var i = 0; i < rows.length; i++) {
+                index = rows[i].keys.indexOf("" + String.fromCharCode(event.keyCode));
+                if (index == -1) {
                         index = rows[i].keys.indexOf(event.keyCode);
-                        if (index == -1) {
-                                index = rows[i].keys.indexOf(String.fromCharCode(event.keyCode));
-                        }
-                        console.log(event.keyCode + " " + index);
-                        if (index != -1) {
-                                row = rows[i];
-                                break;
-                        }
                 }
-                var hi = document.getElementById("highlight");
-                hi.style.top = row.top + "px";
-                hi.style.left = row.left + (row.spacing * index) + "px";
+                console.log(event.keyCode + " " + index);
+                if (index != -1) {
+                        row = rows[i];
+                        break;
+                }
         }
+        var hi = document.getElementById("highlight");
+        hi.style.top = row.top + "px";
+        hi.style.left = row.left + (row.spacing * index) + "px";
 });
 
 if (location.hash) {
