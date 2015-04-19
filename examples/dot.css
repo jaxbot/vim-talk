@@ -1,0 +1,11 @@
+.center my_anaconda {
+  color: blue;
+  font-size: 30px;
+}
+.center my_anaconda_requiredToBeInMixedCaseBecauseOverridingSomeStupidJQueryPlugin {
+}
+.center my_anaconda input {
+}
+.center my_anaconda p {
+  color: blue;
+}
